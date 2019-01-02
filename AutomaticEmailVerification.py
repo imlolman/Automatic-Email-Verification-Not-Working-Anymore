@@ -20,7 +20,6 @@ def fetch(emailAddress,body=1,subject=1,sender=1,link=1):
         sender_data = ""
         subject_data = ""
         body_data = ""
-
         if link:
             link_data = re.search('(?<=href=\")((.|\s)*?)(?=\")',mail[0].strip()).group(0)
         if sender:
@@ -28,11 +27,11 @@ def fetch(emailAddress,body=1,subject=1,sender=1,link=1):
         if subject:
             subject_data = re.search('(?<=class=\"title-subject\">)((.|\s)*?)(?=</a>)',mail[0].strip()).group(0)
         if body:
-            request = requests.get(link)
+            request = requests.get(link_data)
             if(request.status_code == 200):
                 body_re = re.search("(?<=<div class=\"pm-text\">)((.|\s)*?)(?=</div>\s*?<div class=\"adblockMailView pm-info\">)",request.text)
                 if body_re != None:
-                    body_data = mess_re.group(0)
+                    body_data = body_re.group(0)
         toReturn.append({
             "link": link_data,
             "body": body_data,
@@ -68,4 +67,5 @@ def getAvailableDomains():
 
 def getADomain():
     return getAvailableDomains()[0]
+
 # Source: https://github.com/imlolman/Automatic-Email-Verification
