@@ -1,5 +1,5 @@
 import AutomaticEmailVerification as aev
 
-print("All Available Domains: ")
-print(aev.getAvailableDomains())
-print(aev.fetch("aRandomMail"+aev.getADomain()))
+# print("All Available Domains: ")
+# print(aev.getAvailableDomains())
+print(aev.fetch("restreffer"+aev.getADomain()))
