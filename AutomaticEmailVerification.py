@@ -8,7 +8,8 @@ def fetch(emailAddress, body=1, subject=1, sender=1, link=1):
     matchedTable = re.search(
         '(?<=<ul>)((.|\s)*?)(?=</ul>)', result)
     if matchedTable == None:
-        exit("No Email Table Found on " + emailAddress)
+        return False
+        # exit("No Email Table Found on " + emailAddress)
     data = matchedTable.group(0)
 
     # print(data)
