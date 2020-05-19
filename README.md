@@ -1,3 +1,5 @@
+# --------- Project Expired, Not working anymore ----------- #
+
 # Automatic-Email-Verification
 
 Building a Python module For Automatic Email Verification using Python and temp-mail.org
